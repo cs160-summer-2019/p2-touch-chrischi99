@@ -85,6 +85,43 @@
 	</div>
 	<script>
 	  // your solution here
+    var tapElement = document.getElementById("tap-box");
+    var tap = new Hammer(tapElement);
+    tap.on("tap", function(ev_tap) {
+    tapElement.textContent = ev_tap.type +" gesture detected ";
+});
+    var swipeElement = document.getElementById("swipe-box");
+    var swipe = new Hammer(swipeElement);
+    swipe.on("swipe", function(ev_swipe) {
+    swipeElement.textContent = ev_swipe.type +" gesture detected ";
+});
+    var panElement = document.getElementById("pan-box");
+    var pan = new Hammer(panElement);
+    pan.on("pan", function(ev_pan) {
+    panElement.textContent = ev_pan.type +" gesture detected ";
+});
+    var pressElement = document.getElementById("press-box");
+    var press = new Hammer(pressElement);
+    press.on("press", function(ev_press) {
+    pressElement.textContent = ev_press.type +" gesture detected ";
+});
+    
+    var pinchElement = document.getElementById("pinch-box");
+    var pinch = new Hammer.Manager(pinchElement);
+    var pinch_a = new Hammer.Pinch();
+    pinch.add(pinch_a);
+    pinch.on("pinch", function(ev_pinch) {
+    pinchElement.textContent = ev_pinch.type +" gesture detected ";
+});
+    var rotateElement = document.getElementById("rotate-box");
+    var rotate = new Hammer.Manager(rotateElement);
+    var rotate_a = new Hammer.Rotate();
+    rotate.add(rotate_a);
+    rotate.on("rotate", function(ev_rotate) {
+    rotateElement.textContent = ev_rotate.type +" gesture detected ";
+});
+    
+    
   </script>
 </body>
 </html>
